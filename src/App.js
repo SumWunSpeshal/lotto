@@ -1,6 +1,5 @@
 import React from 'react';
 import Field from './Field';
-import './App.css';
 
 class App extends React.Component {
   nums = Array(49)
@@ -33,11 +32,10 @@ class App extends React.Component {
             ))}
           </ul>
         </section>
-        <br />
-        <br />
-        <br />
-        <br />
         <div className='current-nums'>{this.state.combination}</div>
+        <button type='button' className={`button${this.state.selectionComplete ? '' : ' is-disabled'}`}>
+          Submit
+        </button>
       </div>
     );
   }

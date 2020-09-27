@@ -1,0 +1,85 @@
+.board {
+  width: 400px;
+  border: 3px solid var(--lotto-red);
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    position: relative;
+    flex-basis: var(--seventh);
+
+    // aspect ratio
+    &:before {
+      content: '';
+      display: block;
+      padding-top: 120%;
+    }
+  }
+
+  &__button {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 70%;
+    height: 70%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--lotto-red);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--lotto-red);
+
+    cursor: pointer;
+
+    transition: opacity 0.2s ease-in-out;
+
+    // STATES
+    &.is-disabled {
+      pointer-events: none;
+      cursor: auto;
+      opacity: 0.3;
+    }
+  }
+
+  // svg
+  &__cross {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 3.5rem;
+    height: 3.5rem;
+    opacity: 0.8;
+
+    path {
+      fill: none;
+      stroke: var(--ink-blue);
+      stroke-linecap: round;
+      stroke-width: 20px;
+      stroke-dashoffset: 150px;
+      transform: scale(0.7);
+      stroke-dasharray: 150px;
+
+      transition: stroke-dashoffset 0.1s ease-in-out;
+
+      &:last-child {
+        transition: stroke-dashoffset 0.1s ease-in-out 0.1s;
+      }
+
+      // states
+      .is-active & {
+        stroke-dashoffset: 0;
+      }
+    }
+  }
+}

@@ -1,8 +1,0 @@
-.board {
-  width: 600px;
-}
-
-.board__list {
-  display: flex;
-  flex-wrap: wrap;
-}
