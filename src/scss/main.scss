@@ -1,5 +1,5 @@
 // resets
-@import 'assets/reset';
+@import 'assets/foundation/foundation-init', 'assets/foundation/foundation-settings', 'assets/reset';
 
 // vars
 @import 'vars/include-fonts', 'vars/global';
@@ -11,4 +11,4 @@
 @import 'elements/button';
 
 // modules
-@import 'modules/board';
+@import 'modules/board', 'modules/balls';

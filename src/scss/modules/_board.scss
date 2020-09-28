@@ -1,6 +1,6 @@
 .board {
-  width: 400px;
   border: 3px solid var(--lotto-red);
+  margin-bottom: 2rem;
 
   &__list {
     display: flex;
@@ -39,10 +39,15 @@
     color: var(--lotto-red);
 
     cursor: pointer;
+    // cursor: url('../../img/icons/pen-big.png') 16 16, auto;
 
     transition: opacity 0.2s ease-in-out;
 
     // STATES
+    // &.is-active {
+    //   cursor: url('../../img/icons/eraser.png') 16 16, auto;
+    // }
+
     &.is-disabled {
       pointer-events: none;
       cursor: auto;
