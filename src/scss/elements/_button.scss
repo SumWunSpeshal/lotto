@@ -1,16 +1,19 @@
 // Local Variables
 $lotto-red: #dc542e;
+$ink-blue: #000f55;
 
 .button {
   position: relative;
-  // border: 3px solid rgba($lotto-red, 1);
-  padding: 0.5rem 1rem;
-  font-size: 18px;
+
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 20px;
   font-weight: 700;
   cursor: pointer;
 
   color: white;
-  background-color: $lotto-red;
+  background-color: $ink-blue;
 
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 
@@ -18,12 +21,12 @@ $lotto-red: #dc542e;
     content: '';
     display: block;
     position: absolute;
-    top: calc(50%);
+    top: 50%;
     left: 0;
     transform: translateY(-50%);
     height: 100%;
 
-    background-color: rgba($lotto-red, 0.2);
+    background-color: rgba($ink-blue, 0.6);
     transition: width 0.2s ease-in-out, background-color 0.2s ease-in-out;
   }
 
@@ -41,7 +44,25 @@ $lotto-red: #dc542e;
   &.is-disabled {
     cursor: auto;
     pointer-events: none;
-    background-color: rgba($lotto-red, 0.15);
-    color: var(--lotto-red);
+    background-color: rgba($ink-blue, 0.4);
+  }
+
+  span {
+    color: white;
+    position: relative;
+  }
+
+  &--delete {
+    background-color: $lotto-red;
+
+    &:before {
+      content: none;
+    }
+
+    &.is-disabled {
+      cursor: auto;
+      pointer-events: none;
+      background-color: rgba($lotto-red, 0.4);
+    }
   }
 }
