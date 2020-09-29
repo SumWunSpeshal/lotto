@@ -46,6 +46,7 @@ class App extends React.Component {
 
   delete() {
     this.setState({ combination: [], selectionComplete: false });
+    localStorage.setItem(STORAGE_SERVICE, JSON.stringify([]));
   }
 
   render() {
