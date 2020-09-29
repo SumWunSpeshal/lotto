@@ -5,14 +5,6 @@ import Field from './Field';
 const STORAGE_SERVICE = 'combination';
 
 class App extends React.Component {
-  componentDidMount() {
-    const prevCombination = JSON.parse(localStorage.getItem(STORAGE_SERVICE));
-    this.setState({
-      combination: prevCombination.length ? prevCombination : [],
-      selectionComplete: prevCombination.length >= 6,
-    });
-  }
-
   nums = Array(49)
     .fill(0)
     .map((item, index) => index + 1);
@@ -21,6 +13,14 @@ class App extends React.Component {
     combination: [],
     selectionComplete: false,
   };
+
+  componentDidMount() {
+    const prevCombination = JSON.parse(localStorage.getItem(STORAGE_SERVICE));
+    this.setState({
+      combination: prevCombination.length ? prevCombination : [],
+      selectionComplete: prevCombination.length >= 6,
+    });
+  }
 
   async submit() {
     const body = { combination: this.state.combination };

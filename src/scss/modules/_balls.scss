@@ -54,13 +54,6 @@ $ball-fs: 36px;
     font-weight: 700;
     color: black;
     animation: ballRoll 0.3s ease-out;
-
-    &:after {
-      content: attr(data-number);
-      position: absolute;
-      transform: translateX(-50%);
-      left: 50%;
-    }
   }
 }
 
