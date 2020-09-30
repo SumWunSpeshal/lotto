@@ -11,14 +11,13 @@ class App extends React.Component {
 
   state = {
     combination: [],
-    selectionComplete: false,
   };
 
   componentDidMount() {
     const prevCombination = JSON.parse(localStorage.getItem(STORAGE_SERVICE));
+
     this.setState({
-      combination: prevCombination.length ? prevCombination : [],
-      selectionComplete: prevCombination.length >= 6,
+      combination: prevCombination ? prevCombination : [],
     });
   }
 
@@ -37,15 +36,15 @@ class App extends React.Component {
     return response.json();
   }
 
-  getItemValue(value) {
-    let newArr = this.state.combination;
+  setFieldValue(value) {
+    let newArr = [...this.state.combination];
     this.state.combination.indexOf(value) !== -1 ? newArr.splice(newArr.indexOf(value), 1) : newArr.push(value);
-    this.setState({ combination: newArr, selectionComplete: newArr.length >= 6 });
+    this.setState({ combination: newArr });
     localStorage.setItem(STORAGE_SERVICE, JSON.stringify(newArr));
   }
 
   delete() {
-    this.setState({ combination: [], selectionComplete: false });
+    this.setState({ combination: [] });
     localStorage.setItem(STORAGE_SERVICE, JSON.stringify([]));
   }
 
@@ -60,9 +59,9 @@ class App extends React.Component {
                   <Field
                     key={item}
                     value={item}
-                    isDisabled={this.state.selectionComplete}
+                    isDisabled={this.state.combination.length >= 6}
                     isActive={this.state.combination.indexOf(item) !== -1}
-                    eventHandler={val => this.getItemValue(val)}
+                    onClick={val => this.setFieldValue(val)}
                   />
                 ))}
               </ul>
@@ -82,7 +81,7 @@ class App extends React.Component {
                   type='button'
                   onClick={() => this.submit()}
                   className={`button step-${this.state.combination.length} ${
-                    this.state.selectionComplete ? '' : ' is-disabled'
+                    this.state.combination.length >= 6 ? '' : ' is-disabled'
                   }`}
                 >
                   <span>Submit</span>

@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Ball(props) {
+function Ball({ num }) {
   return (
     <section className='balls__stage'>
       <figure className='balls__ball'>
-        <span className='balls__number'>{props.num}</span>
+        <span className='balls__number'>{num}</span>
       </figure>
     </section>
   );

@@ -1,17 +1,13 @@
 import React from 'react';
 
-function Field(props) {
+function Field({ value, isActive, isDisabled, onClick }) {
   return (
     <li className='board__item'>
       <button
-        onClick={() => props.eventHandler(props.value)}
-        className={
-          'board__button' +
-          (props.isActive ? ' is-active' : '') +
-          (props.isDisabled && !props.isActive ? ' is-disabled' : '')
-        }
+        onClick={() => onClick(value)}
+        className={'board__button' + (isActive ? ' is-active' : '') + (isDisabled && !isActive ? ' is-disabled' : '')}
       >
-        {props.value}
+        {value}
         <svg className='board__cross' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 111.1785 111.4073'>
           <path
             d='M27.4757,123.1172c18.4008-24.6937,43.827-43.1,65.3288-65.1463,13.3595-13.6977,26.2785-29.5267,44.6117-35.0034'
